@@ -1,14 +1,22 @@
-import { useLocation } from "react-router-dom";
-import React, { useState } from "react";
-import { Card, Button, Container, Row, Col } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Modal, Button } from 'react-bootstrap';
 
-function PostDetail () {
-
-    const navigate = useNavigate();
-    const [formData, setFormData] = useState({ username: "", name: "", description: "", url: ""});
-    const [error, setError] = useState("");
-
-}
+const PostDetail = ({ show, handleClose, imageUrl }) => {
+  return (
+    <Modal show={show} onHide={handleClose}>
+      <Modal.Header closeButton>
+        <Modal.Title>Detalles del Post</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <img src={imageUrl} className="img-fluid" alt="Post" />
+      </Modal.Body>
+      <Modal.Footer>
+        <Button variant="secondary" onClick={handleClose}>
+          Cerrar
+        </Button>
+      </Modal.Footer>
+    </Modal>
+  );
+};
 
 export default PostDetail;
