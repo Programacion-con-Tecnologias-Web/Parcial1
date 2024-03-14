@@ -1,66 +1,55 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
-import data from "./Datos.json"
+// Home.js
+import React, { useState, useEffect } from 'react';
+import Header from './Header';
+import './Home.css';
 
-function Home() {
+function Home () {
+  const [userData, setUserData] = useState({});
+  const [photos, setPhotos] = useState([]);
 
-    const [users, setUsers] = useState([]);
-    const [error, setError] = useState("");
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('https://raw.githubusercontent.com/Programacion-con-Tecnologias-Web/Parcial1/master/src/componentes/Datos.json');
+        const data = await response.json();
+        setUserData(data);
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+      }
+    };
 
-    useEffect(() => {
-        const fetchData = async () => {
-          try {
-            const response = await fetch("https://github.com/Programacion-con-Tecnologias-Web/Parcial1/blob/master/src/componentes/Datos.json");
-            if (!response.ok) {
-              throw new Error("Error al obtener los datos");
-            }
-            const data = await response.json();
-            setUsers(data);
-          } catch (error) {
-            setError(error.message);
-          }
-        };
-        fetchData();
-      }, []);
+    fetchData();
+  }, []);
 
-    return (
+  useEffect(() => {
+    const fetchPhotos = async () => {
+      try {
+        const response = await fetch('https://picsum.photos/350');
+        const photoUrls = [];
+        for (let i = 0; i < 12; i++) {
+          photoUrls.push(response.url);
+        }
+        setPhotos(photoUrls);
+      } catch (error) {
+        console.error('Error fetching photos:', error);
+      }
+    };
 
-    <Container className="home-container">
-      <Row>
-        <Col md={12}>
-          <h2>
-            Username
-          </h2>
-          <Row>
-            {users.map((user) => (
-              <Col md={3} key={user.id}>
-                  <Card.Img variant="top" src={user.url} alt={user.url} />
-                  <Card className="user-card">
-                    <Card.Body>
-                      <Card.Title>{user.username}</Card.Title>
-                      <Card.Text>{user.name} </Card.Text>
-                      <Card.Text>{user.desription}</Card.Text>
-                      <Card.Text>{user.cant} </Card.Text>
-                      <Card.Text>{user.cantSeguidas}</Card.Text>
-                      <Link
-                        to={`/perfil/`}
-                        state={{ user }}
-                        className="user-link"
-                      > Ver perfil
-                      </Link>
-                    </Card.Body>
-                    </Card>
-              </Col>
-            ))}
-          </Row>
-        </Col>
-      </Row>
-    </Container>
-    
-        
-    )
+    fetchPhotos();
+  }, []);
 
-}
+  return (
+    <div className="container">
+      <Header userData={userData} />
+      <div className="row justify-content-center">
+        {photos.map((photoUrl, index) => (
+          <div key={index} className="home-col-md-3 home-col-sm-4 home-col-6 mb-4">
+            <img src={photoUrl} className="img-fluid" alt={`Photo ${index}`} />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 export default Home;
