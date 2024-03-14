@@ -1,12 +1,14 @@
 [{
+    "id": 1,  
     "username": "Hyundai",
     "name": "Scoupe",
     "description": "Super guay",
     "numPost": 1,
-    "cant": "convallis morbi odio odio elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est",
+    "cant": 10,
     "url": "http://dummyimage.com/300x200.png/5fa2dd/ffffff",
     "cantSeguidas": 3
   }, {
+    "id": 2, 
     "username": "Ladis",
     "name": "Scoupe",
     "description": "Super guay",
