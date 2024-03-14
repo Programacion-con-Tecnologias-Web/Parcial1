@@ -1,0 +1,19 @@
+{
+  "header.profile": "Profile",
+  "header.home": "Home",
+  "home.details": "Post Details",
+  "perfil.username": "Username",
+  "perfil.name": "Name",
+  "perfil.description": "Description",
+  "perfil.url": "URL",
+  "perfil.edit": "Edit",
+  "perfil.save": "Save",
+  "perfil.cancel": "Cancel",
+  "perfil.back_home": "Back to Home",
+  "post_detail.post_details": "Post Details",
+  "post_detail.close": "Close",
+  "header.url": "URL",
+  "header.posts_number": "Number of Posts",
+  "header.quantity": "Quantity",
+  "header.following_quantity": "Number of Followers"
+}

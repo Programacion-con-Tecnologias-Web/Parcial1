@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl';
 import userData from './Datos.json';
 
 const Perfil = () => {
@@ -28,7 +29,8 @@ const Perfil = () => {
           <div className="card">
             <img src={user.image} alt={user.name} className="rounded-circle mr-3" style={{ width: '100px', height: '100px' }} />
             <div className="card-body">
-              <h5 className="card-title"> Username:
+              <h5 className="card-title">
+                <FormattedMessage id="username" defaultMessage="Username" />:
                 {editing ? (
                   <input
                     type="text"
@@ -41,7 +43,8 @@ const Perfil = () => {
                   user.username
                 )}
               </h5>
-              <p className="card-text"> Name:
+              <p className="card-text">
+                <FormattedMessage id="name" defaultMessage="Name" />:
                 {editing ? (
                   <input
                     type="text"
@@ -54,7 +57,8 @@ const Perfil = () => {
                   user.name
                 )}
               </p>
-              <p className="card-text"> Description:
+              <p className="card-text">
+                <FormattedMessage id="description" defaultMessage="Description" />:
                 {editing ? (
                   <input
                     type="text"
@@ -67,7 +71,8 @@ const Perfil = () => {
                   user.description
                 )}
               </p>
-              <p className="card-text"> URL:
+              <p className="card-text">
+                <FormattedMessage id="url" defaultMessage="URL" />:
                 {editing ? (
                   <input
                     type="text"
@@ -83,19 +88,19 @@ const Perfil = () => {
               {editing ? (
                 <>
                   <button className="btn btn-primary mr-2" onClick={handleSave}>
-                    Guardar
+                    <FormattedMessage id="save" defaultMessage="Save" />
                   </button>
                   <button className="btn btn-secondary" onClick={() => setEditing(false)}>
-                    Cancelar
+                    <FormattedMessage id="cancel" defaultMessage="Cancel" />
                   </button>
                 </>
               ) : (
                 <button className="btn btn-primary" onClick={() => setEditing(true)}>
-                  Editar
+                  <FormattedMessage id="edit" defaultMessage="Edit" />
                 </button>
               )}
               <Link to="/" className="btn btn-primary ml-2">
-                Volver al Inicio
+                <FormattedMessage id="back_to_home" defaultMessage="Back to Home" />
               </Link>
             </div>
           </div>

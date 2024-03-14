@@ -1,9 +1,9 @@
-// Home.js
 import React, { useState, useEffect } from 'react';
 import Header from './Header';
 import PostDetail from './PostDetail';
 import { Link } from 'react-router-dom';
 import userData from './Datos.json';
+import { FormattedMessage } from 'react-intl';
 
 const Home = () => {
   const [photos, setPhotos] = useState([]);
