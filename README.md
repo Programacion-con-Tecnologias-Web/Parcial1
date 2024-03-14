@@ -1,7 +1,6 @@
 # Parcial 1
 
-## Nombre: Maria Alejandra Estrada Garcia (m.estradag)
-## Codigo: 202021060
+## Nombre y codigo: Maria Alejandra Estrada Garcia (m.estradag) 202021060
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
