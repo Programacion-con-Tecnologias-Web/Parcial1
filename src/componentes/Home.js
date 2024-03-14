@@ -13,7 +13,7 @@ function Home() {
           try {
             const response = await fetch("https://github.com/Programacion-con-Tecnologias-Web/Parcial1/blob/master/src/componentes/Datos.json");
             if (!response.ok) {
-              throw new Error("Error al obtener los libros");
+              throw new Error("Error al obtener los datos");
             }
             const data = await response.json();
             setUsers(data);
@@ -30,31 +30,34 @@ function Home() {
       <Row>
         <Col md={12}>
           <h2>
-            Username {/* Internacionalizar el encabezado */}
+            Username
           </h2>
           <Row>
             {users.map((user) => (
               <Col md={3} key={user.id}>
                   <Card.Img variant="top" src={user.url} alt={user.url} />
-                  <Card.Body>
-                    <Card.Title>{user.username}</Card.Title>
-                    <Card.Text>{user.name}</Card.Text>
-                    <Card.Text>{user.desription}</Card.Text>
-                    <Card.Text>{user.cant} Seguidores</Card.Text>
-                    <Card.Text>{user.cantSeguidas} Seguidas</Card.Text>
-                    <Link
-                      to={`/perfil/${user.id}`}
-                      state={{ user }}
-                      className="user-link"
-                    >
-                    </Link>
-                  </Card.Body>
+                  <Card className="user-card">
+                    <Card.Body>
+                      <Card.Title>{user.username}</Card.Title>
+                      <Card.Text>{user.name} </Card.Text>
+                      <Card.Text>{user.desription}</Card.Text>
+                      <Card.Text>{user.cant} </Card.Text>
+                      <Card.Text>{user.cantSeguidas}</Card.Text>
+                      <Link
+                        to={`/perfil/`}
+                        state={{ user }}
+                        className="user-link"
+                      > Ver perfil
+                      </Link>
+                    </Card.Body>
+                    </Card>
               </Col>
             ))}
           </Row>
         </Col>
       </Row>
     </Container>
+    
         
     )
 
