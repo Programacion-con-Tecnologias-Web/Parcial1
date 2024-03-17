@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 import userData from './Datos.json';
 
-const Perfil = (setProfileUser) => {
+const Perfil = ({ setProfileUser = () => {} }) => {
   const [user, setUser] = useState({});
   const [editedUser, setEditedUser] = useState({});
   const [editing, setEditing] = useState(false);
