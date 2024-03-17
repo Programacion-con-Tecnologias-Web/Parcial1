@@ -25,6 +25,8 @@ Una vez que todas las dependencias estén instaladas y las configuraciones sean 
 
 La aplicación se ejecutará en http://localhost:3000 en el navegador web predeterminado.
 
+Tenga en cuenta que la aplicaicón dura un poco en cargar las imagenes del contenido central de la pagina. 
+
 ### Componentes y elementos utilizados 
 
 - React: Una biblioteca de JavaScript para construir interfaces de usuario.
