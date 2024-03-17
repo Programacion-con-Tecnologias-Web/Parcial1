@@ -4,6 +4,7 @@ import Home from './componentes/Home';
 import Perfil from './componentes/Perfil';
 
 function App() {
+
   return (
     <Router>
       <Routes>
